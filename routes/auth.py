@@ -42,6 +42,7 @@ def register():
 
     return render_template("register.html")
 
+@auth.route("/")
 @auth.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":

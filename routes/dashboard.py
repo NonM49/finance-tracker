@@ -4,7 +4,6 @@ import sqlite3
 
 dash = Blueprint("dash", __name__)
 
-@dash.route("/")
 @dash.route("/dashboard")
 def dashboard():
     if "user_id" not in session:
