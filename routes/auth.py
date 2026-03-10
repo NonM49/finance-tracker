@@ -22,7 +22,7 @@ def register():
             flash("Password must be at least 6 characters")
             return render_template("register.html")
 
-        conn = sqlite3.connect("database.db")
+        conn = sqlite3.connect("database.db", check_same_thread=False)
         cur = conn.cursor()
 
         # check if user exists
@@ -52,7 +52,7 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
 
-        conn = sqlite3.connect("database.db")
+        conn = sqlite3.connect("database.db", check_same_thread=False)
         cur = conn.cursor()
 
         cur.execute("SELECT * FROM users WHERE username=?", (username,))

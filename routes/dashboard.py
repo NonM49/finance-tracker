@@ -10,7 +10,7 @@ def dashboard():
         flash("Login first!", category="error")
         return redirect(url_for("auth.login"))
     
-    conn = sqlite3.connect("database.db")
+    conn = sqlite3.connect("database.db", check_same_thread=False)
     cur = conn.cursor()
 
     cur.execute(
@@ -55,7 +55,7 @@ def delete(id):
         flash("Login first!", category="error")
         return redirect(url_for("auth.login"))
 
-    conn = sqlite3.connect("database.db")
+    conn = sqlite3.connect("database.db", check_same_thread=False)
     cur = conn.cursor()
 
     cur.execute(
