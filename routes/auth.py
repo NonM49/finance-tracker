@@ -65,7 +65,8 @@ def login():
             flash(f"Login successful!, {username}")
             return redirect(url_for("dash.dashboard"))
         
-        return "Invalid username or password"
+        flash("Invalid username or password")
+        return render_template("login.html")
     
     return render_template("login.html")
 
