@@ -13,12 +13,14 @@ def register():
 
         # validation
         if not username or not password:
-            return "Username and password required"
+            flash("Username and password required")
+            return render_template("register.html")
         
         hashed_password = generate_password_hash(password)
         
         if len(password) < 6:
-            return "Password must be at least 6 characters"
+            flash("Password must be at least 6 characters")
+            return render_template("register.html")
 
         conn = sqlite3.connect("database.db")
         cur = conn.cursor()
@@ -28,7 +30,8 @@ def register():
         user = cur.fetchone()
 
         if user:
-            return "Username already exists"
+            flash("Username already exists")
+            return render_template("register.html")
 
         cur.execute(
     "INSERT INTO users (username, password) VALUES (?, ?)",
@@ -36,7 +39,7 @@ def register():
 )
         conn.commit()
         conn.close()
-        flash("User registered")
+        flash("User registered!")
 
         return redirect("/")
 
