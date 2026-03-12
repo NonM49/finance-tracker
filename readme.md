@@ -19,13 +19,13 @@ Users can add transactions, view their financial summary, and visualize spending
 
 ## Tech Stack
 
-- Backend
+### Backend
 
 - Python
 
 - Flask
 
-## Frontend
+### Frontend
 
 - HTML
 
@@ -35,7 +35,7 @@ Users can add transactions, view their financial summary, and visualize spending
 
 - Chart.js
 
-## Database
+### Database
 
 - SQLite
 
