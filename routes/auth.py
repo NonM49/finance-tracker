@@ -77,6 +77,7 @@ def login():
 def logout():
     username = session.get("username")
     session.pop("username", None)
+    session.pop("user_id", None)
 
     flash(f"Logged out successful!, {username} ")
     return redirect(url_for("auth.login"))
